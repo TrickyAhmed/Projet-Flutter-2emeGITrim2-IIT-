@@ -29,7 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
 
-  flutter_localization: ^0.2.0
+  icons_launcher:
   language_picker:
   font_awesome_flutter:
   flutter_map:
@@ -40,9 +40,15 @@ dependencies:
   flutter_svg: ^0.22.0
   provider: ^5.0.0
 
-  # The following adds the Cupertino Icons font to your application.
+  # The following adds t  he Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+
+icons_launcher:
+  image_path: "images/Traveling.png"
+  platforms:
+    android:
+      enable: true
 
 dev_dependencies:
   flutter_test:

@@ -101,7 +101,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
                 },
               ),
               ListTile(
-                title: Text('Mon RIG'),
+                title: Text(isEnglishOn ? 'My RIG' : 'Mon RIG'),
                 onTap: () {
                   Navigator.push(
                     context,
