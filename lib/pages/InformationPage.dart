@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_cv/main.dart';
-import 'package:personal_cv/pages/MonRIGPage.dart';
+import 'package:personal_cv/pages/LanguagePage.dart';
 import 'package:personal_cv/pages/AcceuilPage.dart';
 
 void main() {
@@ -47,33 +47,28 @@ class _InformationPageState extends State<InformationPage> {
       home: Scaffold(
         appBar: AppBar(
           title: Text(isEnglishOn ? 'Contact Information' : 'Informations de Contact'),
-          backgroundColor: Colors.amberAccent,
+          backgroundColor: Colors.blueAccent,
         ),
         body: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                isEnglishOn ? 'Contact Information:' : 'Informations de Contact :',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepOrangeAccent,
-                ),
-              ),
               SizedBox(height: 10.0),
-              ListTile(
-                leading: Icon(Icons.email),
-                title: Text(isEnglishOn ? 'Email : ahmedtriki.triki5@gmail.com' : 'E-mail : ahmedtriki.triki5@gmail.com'),
+              _buildCard(
+                icon: Icons.email,
+                title: isEnglishOn ? 'Email :' : 'E-mail :',
+                content: 'ahmedtriki.triki5@gmail.com',
               ),
-              ListTile(
-                leading: Icon(Icons.phone),
-                title: Text(isEnglishOn ? 'Phone : +27680223' : 'Téléphone : +27680223'),
+              _buildCard(
+                icon: Icons.phone,
+                title: isEnglishOn ? 'Phone :' : 'Téléphone :',
+                content: '+27680223',
               ),
-              ListTile(
-                leading: Icon(Icons.location_on),
-                title: Text(isEnglishOn ? 'Address : RTE Ain, Sfax, Tunisia' : 'Adresse : RTE Ain , Sfax , Tunisie'),
+              _buildCard(
+                icon: Icons.location_on,
+                title: isEnglishOn ? 'Address :' : 'Adresse :',
+                content: 'RTE Ain, Sfax, Tunisia',
               ),
             ],
           ),
@@ -84,7 +79,7 @@ class _InformationPageState extends State<InformationPage> {
             setState(() {
               _currentIndex = index;
               if (_currentIndex == 0) {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MonRIGPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LanguagePage()));
               } else if (_currentIndex == 1) {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => AcceuilPage()));
               }
@@ -101,6 +96,20 @@ class _InformationPageState extends State<InformationPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildCard({required IconData icon, required String title, required String content}) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: ListTile(
+        leading: Icon(icon),
+        title: Text(title),
+        subtitle: Text(content),
       ),
     );
   }

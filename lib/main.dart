@@ -6,7 +6,6 @@ import 'package:personal_cv/pages/ParcoursPage.dart';
 import 'package:personal_cv/pages/CompetencesPage.dart';
 import 'package:personal_cv/pages/AcceuilPage.dart';
 import 'package:personal_cv/pages/InformationPage.dart';
-import 'package:personal_cv/pages/MonRIGPage.dart';
 import 'package:personal_cv/pages/LanguagePage.dart';
 import 'package:personal_cv/pages/MapPage.dart';
 bool isLightMode = true;
@@ -20,7 +19,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final routes = {
       '/LanguagePage': (context) => LanguagePage(),
-      '/MonRIGPage': (context) => MonRIGPage(),
       '/informations': (context) => InformationPage(),
       '/competences': (context) => CompetencesPage(),
       '/acceuil': (context) => AcceuilPage(),

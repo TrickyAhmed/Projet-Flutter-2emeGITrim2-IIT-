@@ -37,98 +37,41 @@ class StagesPage extends StatelessWidget {
             isEnglishOn ? 'Internships' : 'Stages',
             style: TextStyle(fontSize: 24),
           ),
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.blueAccent,
         ),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    isEnglishOn ? 'Internship 2020 :' : 'Stage 2020 :',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.green,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    ' - Primatec - Sfax, Tunisie .',
-                    style: TextStyle(
-                      fontSize: 19,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    isEnglishOn ? ' - Duration of 60 Days\n - Observer Role .' : ' - Durée de 60 Jours\n - Role Observateur .',
-                    style: TextStyle(
-                      fontSize: 19,
-                    ),
-                  ),
-
-                ],
+              SizedBox(
+                width: double.infinity,
+                height: 200.0,
+                child: _buildStage(
+                  year: '2020',
+                  location: isEnglishOn ? ' Primatec Sfax, Tunisia':' Primatec Sfax, Tunisie',
+                  duration: isEnglishOn ? ' Duration of 60 Days\n Observer Role .' : ' Durée de 60 Jours\n Role Observateur .',
+                ),
               ),
               SizedBox(height: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    isEnglishOn ? 'Internship 2021 :' : 'Stage 2021 :',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.green,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    ' - HTWK - Leipzig, Allemagne .',
-                    style: TextStyle(
-                      fontSize: 19,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    isEnglishOn ? ' - Duration of 30 Days\n - Focused on the topic: Internet of Things .' : ' - Durée de 30 Jours\n - Zoom sur le sujet : Internet des objets .',
-                    style: TextStyle(
-                      fontSize: 19,
-                    ),
-                  ),
-
-                ],
+              SizedBox(
+                width: double.infinity,
+                height: 200.0,
+                child: _buildStage(
+                  year: '2021',
+                  location: isEnglishOn ? ' Leipzig, Germany' : ' Leipzig, Allemagne',
+                  duration: isEnglishOn ? ' Duration of 30 Days\n Focused on the topic: Internet of Things .' : ' Durée de 30 Jours\n Zoom sur le sujet : Internet des objets.',
+                ),
               ),
               SizedBox(height: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    isEnglishOn ? 'Internship 2022 :' : 'Stage 2022 :',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.green,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    ' - Chemnitz - Leipzig, Allemagne .',
-                    style: TextStyle(
-                      fontSize: 19,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    isEnglishOn ? ' - Duration of 90 Days\n - Diagnosis and Correction of Errors' : ' - Durée de 90 Jours\n - Diagnostic et Correction des erreurs ',
-                    style: TextStyle(
-                      fontSize: 19,
-                    ),
-                  ),
-
-                ],
+              SizedBox(
+                width: double.infinity,
+                height: 200.0,
+                child: _buildStage(
+                  year: '2022',
+                  location: isEnglishOn ? ' Chemnitz - Leipzig, Germany' : ' Chemnitz - Leipzig, Allemagne',
+                  duration: isEnglishOn ? ' Duration of 90 Days\n Diagnosis and Correction of Errors' : ' Durée de 90 Jours\n Diagnostic et Correction des erreurs ',
+                ),
               ),
             ],
           ),
@@ -165,6 +108,47 @@ class StagesPage extends StatelessWidget {
             BottomNavigationBarItem(
               label: '',
               icon: Icon(Icons.arrow_forward_ios),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStage({required String year, required String location, required String duration}) {
+    return Card(
+      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(10.0),
+        side: BorderSide(color: Colors.grey),
+      ),
+      elevation: 4.0,
+      margin: EdgeInsets.all(8.0),
+      child: Padding(
+        padding: EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              isEnglishOn ? 'Internship $year :' : 'Stage $year :',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.deepPurple,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              location,
+              style: TextStyle(
+                fontSize: 19,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              duration,
+              style: TextStyle(
+                fontSize: 19,
+                color: getTheme().textTheme.bodyMedium!.color,
+              ),
             ),
           ],
         ),

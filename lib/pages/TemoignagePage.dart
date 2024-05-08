@@ -39,7 +39,9 @@ class _TemoignagePageState extends State<TemoignagePage> {
       theme: getTheme(),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(isEnglishOn ? 'Testimonials' : 'Témoignages'),
+          title: Text(isEnglishOn ? 'Testimonials' : 'Témoignages' , style: TextStyle(fontSize: 24),),
+            backgroundColor: Colors.blueAccent
+
         ),
         body: Column(
           children: [
@@ -59,7 +61,7 @@ class _TemoignagePageState extends State<TemoignagePage> {
                     title: Text(
                       'IIT : ',
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.deepPurple,
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),

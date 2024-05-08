@@ -7,7 +7,6 @@ import 'package:personal_cv/pages/PassionsPage.dart';
 import 'package:personal_cv/pages/StagesPage.dart';
 import 'package:personal_cv/pages/TemoignagePage.dart';
 import 'package:personal_cv/pages/InformationPage.dart';
-import 'package:personal_cv/pages/MonRIGPage.dart';
 import 'package:personal_cv/pages/LanguagePage.dart';
 import 'package:language_picker/languages.dart';
 import 'package:language_picker/language_picker.dart';
@@ -81,12 +80,12 @@ class _AcceuilPageState extends State<AcceuilPage> {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: Colors.green[100],
                 ),
                 child: Center(
                   child: CircleAvatar(
                     // Use the user's image here
-                    backgroundImage: AssetImage('images/Me.jpg'),
+                    backgroundImage: AssetImage('images/Traveling.jpg'),
                     radius: 80,
                   ),
                 ),
@@ -100,15 +99,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   );
                 },
               ),
-              ListTile(
-                title: Text(isEnglishOn ? 'My RIG' : 'Mon RIG'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MonRIGPage()),
-                  );
-                },
-              ),
+
               ListTile(
                 title: Text(isEnglishOn ? 'Information Page' : 'Informations Page'),
                 onTap: () {
@@ -162,72 +153,35 @@ class _AcceuilPageState extends State<AcceuilPage> {
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  isEnglishOn ? 'Pages to Explore:' : 'Pages à Explorer:',
+                  isEnglishOn ? ' My company on maps:' : 'Ma société sur la carte :',
                   style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 10.0),
-                GridView.count(
-                  crossAxisCount: 2, // Number of columns in the grid
-                  mainAxisSpacing: 8, // Vertical space between grid items
-                  crossAxisSpacing: 8, //  between grid items
-                  shrinkWrap: true, // Make GridView wrap its content
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => CompetencesPage()),
-                        );
-                      },
-                      child: Text(isEnglishOn ? 'Skills' : 'Compétences'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ParcoursPage()),
-                        );
-                      },
-                      child: Text(isEnglishOn ? 'Journey' : 'Parcours'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => PassionsPage()),
-                        );
-                      },
-                      child: Text(isEnglishOn ? 'Passions' : 'Passions'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => StagesPage()),
-                        );
-                      },
-                      child: Text(isEnglishOn ? 'Internships' : 'Stages'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TemoignagePage()),
-                        );
-                      },
-                      child: Text(isEnglishOn ? 'Testimonials' : 'Témoignages'),
-                    ),
-                    ElevatedButton(
+                SizedBox(height: 50.0),
+                Center(
+                  child: SizedBox(
+                    width: 200, // Adjust the width as needed
+                    height: 100, // Adjust the height as needed
+                    child: ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => MapPage()),
                         );
                       },
-                      child: Text(isEnglishOn ? 'My Company' : 'Ma Société'),
+                      icon: Icon(Icons.map),
+                      label: Text(isEnglishOn ? 'My Company' : 'Ma Société'),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
                     ),
-                  ],
+                  ),
                 ),
+
+
+
+
               ],
             ),
           ),

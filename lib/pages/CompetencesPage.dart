@@ -33,90 +33,35 @@ class _CompetencesPageState extends State<CompetencesPage> {
       home: Scaffold(
         appBar: AppBar(
           title: Text(isEnglishOn ? 'Computer Skills' : 'Compétences en informatique'),
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.blueAccent,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                isEnglishOn ? 'Development Environments :' : 'Environnements de développement :',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                  fontSize: 20.0,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _buildCard(
+                  title: isEnglishOn ? 'Development Environments :' : 'Environnements de développement :',
+                  content: isEnglishOn ? ' Eclipse \n Intellij \n VS Code' : ' Eclipse \n Intellij \n VS Code',
                 ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                isEnglishOn ? ' - Eclipse \n - Intellij \n - VS Code' : ' - Eclipse \n - Intellij \n - VS Code',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: getTheme().textTheme.bodyMedium!.color,
+                SizedBox(height: 20.0),
+                _buildCard(
+                  title: isEnglishOn ? 'Frameworks :' : 'Frameworks :',
+                  content: isEnglishOn ? ' Laravel\n Node.js\n Angular' : ' Laravel\n Node.js\n Angular',
                 ),
-                textAlign: TextAlign.start,
-              ),
-              SizedBox(height: 20.0),
-              Text(
-                isEnglishOn ? 'Frameworks :' : 'Frameworks :',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                  fontSize: 20.0,
+                SizedBox(height: 20.0),
+                _buildCard(
+                  title: isEnglishOn ? 'Programming Languages :' : 'Langages de programmation :',
+                  content: isEnglishOn ? ' PHP\n Python.js\n Java' : ' PHP\n Python.js\n Java',
                 ),
-                textAlign: TextAlign.start,
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                isEnglishOn ? ' - Laravel\n - Node.js\n - Angular' : ' - Laravel\n - Node.js\n - Angular',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: getTheme().textTheme.bodyMedium!.color,
+                SizedBox(height: 20.0),
+                _buildCard(
+                  title: isEnglishOn ? 'Database Management Systems :' : 'Système de gestion de base de données :',
+                  content: isEnglishOn ? ' Microsoft Access\n MySQL\n Oracle Database' : ' Microsoft Access\n MySQL\n Oracle Database',
                 ),
-                textAlign: TextAlign.start,
-              ),
-              SizedBox(height: 20.0),
-              Text(
-                isEnglishOn ? 'Programming Languages :' : 'Langages de programmation :',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                  fontSize: 20.0,
-                ),
-                textAlign: TextAlign.start,
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                isEnglishOn ? ' - PHP\n - Python.js\n - Java' : ' - PHP\n - Python.js\n - Java',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: getTheme().textTheme.bodyMedium!.color,
-                ),
-                textAlign: TextAlign.start,
-              ),
-              SizedBox(height: 20.0),
-              Text(
-                isEnglishOn ? 'Database Management Systems :' : 'Système de gestion de base de données :',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                  fontSize: 20.0,
-                  fontFamily: 'Roboto',
-                ),
-                textAlign: TextAlign.start,
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                isEnglishOn ? ' - Microsoft Access\n - MySQL\n - Oracle Database' : ' - Microsoft Access\n - MySQL\n - Oracle Database',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: getTheme().textTheme.bodyMedium!.color,
-                ),
-                textAlign: TextAlign.start,
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -145,6 +90,43 @@ class _CompetencesPageState extends State<CompetencesPage> {
             BottomNavigationBarItem(
               label: '',
               icon: Icon(Icons.arrow_forward_ios),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCard({required String title, required String content}) {
+    return Card(
+
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+        side: BorderSide(color: Colors.grey),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.deepPurple,
+                fontSize: 20.0,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              content,
+              style: TextStyle(
+                fontSize: 20.0,
+                color: getTheme().textTheme.bodyMedium!.color,
+              ),
+              textAlign: TextAlign.start,
             ),
           ],
         ),

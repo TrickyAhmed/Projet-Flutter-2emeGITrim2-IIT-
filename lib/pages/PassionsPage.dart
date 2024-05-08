@@ -36,7 +36,7 @@ class _PassionsPageState extends State<PassionsPage> {
           title: Text(
             isEnglishOn ? 'Passions' : 'Passions',
           ),
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.blueAccent,
         ),
         body: ListView(
           padding: EdgeInsets.all(16.0),
@@ -117,7 +117,7 @@ class _PassionsPageState extends State<PassionsPage> {
         style: TextStyle(
           fontSize: 22.0,
           fontWeight: FontWeight.bold,
-          color: Colors.green,
+          color: Colors.deepPurple,
         ),
       ),
       children: items.map((item) {
